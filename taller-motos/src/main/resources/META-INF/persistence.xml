@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+
+    <!-- Definimos nuestra "Unidad de Persistencia". Puedes tener varias si te conectas a distintas bases de datos -->
+    <persistence-unit name="tallerMotosPU" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Proveedor de JPA (Le decimos que use Hibernate) -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<!--        <class>org.gerardo.taller.models.Cliente</class>-->
+
+        <properties>
+            <!-- ========================================================= -->
+            <!-- 1. CONFIGURACIÓN DE CONEXIÓN A MYSQL (JDBC)             -->
+            <!-- ========================================================= -->
+            <!-- El driver de Java para MySQL -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <!-- La URL de tu base de datos. Asume que se llama 'taller_motos' y está en tu máquina local -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/taller_motos?serverTimezone=UTC" />
+            <!-- Tu usuario de MySQL -->
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <!-- Tu contraseña de MySQL (Cámbiala por la tuya) -->
+            <property name="jakarta.persistence.jdbc.password" value="admin" />
+
+            <!-- ========================================================= -->
+            <!-- 2. CONFIGURACIÓN DE HIBERNATE                           -->
+            <!-- ========================================================= -->
+            <!-- Dialecto: Le enseña a Hibernate a "hablar" el SQL específico de MySQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+
+            <!-- EL SUPERPODER: hbm2ddl.auto
+                 'update': Actualiza el esquema de la BD si hay cambios en tus clases Java.
+                 'create': Borra y recrea la BD cada vez que arranca (útil solo al inicio).
+                 'validate': Solo verifica que la BD y tus clases coincidan. -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- ========================================================= -->
+            <!-- 3. CONFIGURACIÓN DE DESARROLLO (LOGS)                   -->
+            <!-- ========================================================= -->
+            <!-- Muestra en la consola el SQL que Hibernate genera por detrás -->
+            <property name="hibernate.show_sql" value="true" />
+            <!-- Le da formato bonito al SQL en la consola para que sea legible -->
+            <property name="hibernate.format_sql" value="true" />
+            <!-- Muestra los valores reales que se insertan en los '?' de las consultas preparadas -->
+            <property name="hibernate.use_sql_comments" value="true" />
+        </properties>
+
+    </persistence-unit>
+</persistence>
