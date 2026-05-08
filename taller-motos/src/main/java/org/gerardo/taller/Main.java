@@ -6,7 +6,5 @@ import jakarta.persistence.Persistence;
 import org.gerardo.taller.models.Cliente;
 
 public class Main {
-    public static void main(String[] args) {
-       
-    }
+
 }
