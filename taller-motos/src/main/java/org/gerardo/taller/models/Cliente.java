@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -33,6 +34,10 @@ public class Cliente {
     @UpdateTimestamp
     @Column(name = "modificado_en")
     private LocalDateTime modificadoEn;
+
+    // Relacion uno a mucho hacia cliente (un cliente puede tener muchar motos)
+    @OneToMany(mappedBy = "cliente")
+    private List<Motocicleta> motocicletas;
 
     public Cliente() {
     }

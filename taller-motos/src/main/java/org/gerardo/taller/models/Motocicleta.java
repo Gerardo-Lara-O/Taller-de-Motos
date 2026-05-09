@@ -39,8 +39,9 @@ public class Motocicleta {
     @Column(name = "modificado_en")
     private LocalDateTime modificadoEn;
 
-    // Rleacion inversa, una moto tiene muchas ordenes de servicio
-//    private List<OrdenServicio> ordenesServicio;
+    // Relacion inversa, (una moto tiene muchas ordenes de servicio)
+    @OneToMany(mappedBy = "motocicleta", cascade = CascadeType.ALL)
+    private List<OrdenServicio> ordenesServicio;
 
 
     public Motocicleta() {
