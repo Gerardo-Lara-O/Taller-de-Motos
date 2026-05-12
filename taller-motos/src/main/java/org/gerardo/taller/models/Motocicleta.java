@@ -15,11 +15,12 @@ public class Motocicleta {
     @Column(name = "motocicleta_id", nullable = false)
     private Integer id;
 
-    // llave foranea
+    // Relacion con Cliente (Muchos a uno)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id",nullable = false)
     private Cliente cliente;
 
+    // Relacion con Modelo (Muchos a uno)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "modelo_id", nullable = false)
     private Modelo modelo;
