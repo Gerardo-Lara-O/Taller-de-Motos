@@ -28,7 +28,7 @@ public class Motocicleta {
     @Column(length = 15)
     private String placa;
     @Column(length = 30)
-    private String van;
+    private String vin;
     private int cilindrada;
     private int year;
 
@@ -50,7 +50,7 @@ public class Motocicleta {
 
     public Motocicleta(String placa, String van, int cilindrada, int year) {
         this.placa = placa;
-        this.van = van;
+        this.vin = van;
         this.cilindrada = cilindrada;
         this.year = year;
     }
@@ -60,7 +60,7 @@ public class Motocicleta {
         this.cliente = cliente;
         this.modelo = modelo;
         this.placa = placa;
-        this.van = van;
+        this.vin = van;
         this.cilindrada = cilindrada;
         this.year = year;
         this.creadoEn = creadoEn;
@@ -75,12 +75,12 @@ public class Motocicleta {
         this.placa = placa;
     }
 
-    public String getVan() {
-        return van;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVan(String van) {
-        this.van = van;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public int getCilindrada() {
@@ -97,5 +97,53 @@ public class Motocicleta {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Modelo getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
+    }
+
+    public LocalDateTime getCreadoEn() {
+        return creadoEn;
+    }
+
+    public void setCreadoEn(LocalDateTime creadoEn) {
+        this.creadoEn = creadoEn;
+    }
+
+    public LocalDateTime getModificadoEn() {
+        return modificadoEn;
+    }
+
+    public void setModificadoEn(LocalDateTime modificadoEn) {
+        this.modificadoEn = modificadoEn;
+    }
+
+    public List<OrdenServicio> getOrdenesServicio() {
+        return ordenesServicio;
+    }
+
+    public void setOrdenesServicio(List<OrdenServicio> ordenesServicio) {
+        this.ordenesServicio = ordenesServicio;
     }
 }
